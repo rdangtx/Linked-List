@@ -1,5 +1,7 @@
 /**
 *
+* Code from Crunchify
+*
 * @author	Richard Dang
 *
 *
@@ -54,8 +56,51 @@ public class LinkedListTest
 		Node currentNode = head.getNext();
 		for (int i = 1; i < index; i++)
 		{
-			
+			if (currentNode.getNext() == null)
+			{
+				return null;
+			}
+			currentNode = currentNode.getNext();
 		}
+		return currentNode.getData();
+	}
+
+	public boolean remove(int index)
+	{
+		if (index < 1 || index > size())
+		{
+			return false;
+		}
+
+		Node currentNode = head;
+		for (int i = 1; i < index; i++)
+		{
+			if (currentNode.getNext() == null)
+			{
+				return false;
+			}
+			currentNode = currentNode.getNext();
+		}
+		currentNode.setNext(currentNode.getNext().getNext());
+		listCount--;
+		return true;
+	}
+
+	public int size()
+	{
+		return listCount;
+	}
+
+	public String toString()
+	{
+		Node currentNode = head.getNext();
+		String output = "";
+		while (currentNode != null)
+		{
+			output+= "[" + currentNode.getData().toString() + "]";
+			currentNode = currentNode.getNext();
+		}
+		return output;
 	}
 
 }

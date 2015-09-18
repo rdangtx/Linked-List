@@ -1,5 +1,5 @@
 /**
-*
+* Code from Crunchify
 *
 * @author	Richard Dang
 *
